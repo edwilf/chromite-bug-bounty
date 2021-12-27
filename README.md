@@ -13,14 +13,16 @@ More information regarding the bypass and scoreboarding is given [here](https://
 # File Structure
 
 ```bash
-├── README.md -- Describes the idea behind each test and how the ASM is generated efficiently using Python 3.
-
-├── uatg_csrbox_infocsr1.py -- Generates ASM to check the csrrw function in registers mvendorid, mempid, marchid, mhartid.
-├── uatg_csrbox_infocsr2.py -- Generates ASM to check the csrrs function in registers mvendorid, mempid, marchid, mhartid.
-├── uatg_csrbox_infocsr3.py -- Generates ASM to check the csrrc function in registers mvendorid, mempid, marchid, mhartid.
-├── uatg_csrbox_minstret.py -- Generates ASM to check the minstret csr by performing sample operations.
-├── uatg_csrbox_misam.py -- Generates ASM to checking misam csr by disabling the m field and performing some multiplication operations.
-uatg_csrbox_misarv.py -- Generates ASM to check misarv csr by using its reset value as reference.
+├── README.md -- Describes  each test and how the ASM is used to check the condition using Python 3.
+├── uatg_reg_reset_logic.py -- ASM to check if the reset value of RF correct.
+├── uatg_bypass_alu_logic.py --  ASM to check the bypass between ALU instruction.
+├── uatg_bypass_logic_DIV_ALU_variable.py -- ASM to check the bypassing between DIV and ALU instruction.
+├── uatg_bypass_mul_alu.py --ASM to check the bypassing between MUL and ALU instruction.
+├── uatg_bypass_logic_MUL_MUL_variable.py -- ASM to check the bypassing between MUL instructions.
+├── uatg_bypass_logic_DIV_MUL_variable.py -- ASM to check the bypass between DIV and MUL instruction.
+├── uatg_bypass_logic_LOAD_ALU_variable.py --ASM to verify the bypass logic function between the load/store and ALU instruction.
+├── uatg_bypass_pipeline_flush.py --ASM which causes pipeline flush between two bypassing instructions.
+├── uatg_bypass_load_store.py --ASM to verify the forwarding between load and store instruction.
 ```
 
 # Code Description
@@ -40,7 +42,7 @@ uatg_csrbox_misarv.py -- Generates ASM to check misarv csr by using its reset va
 * The result of x24 is bypassed from write-back stage to exuection stage of the third instruction.
 * This requires no stalling of any operation.
 
-### uatg_bypass_div_alu_logic.py
+### uatg_bypass_logic_DIV_ALU_variable.py
 * This program tests the bypass between the div instruction and alu operation and vice versa
 * The result from the div instruction is stored in x24 and the next instruction is dependent on x24.
 * So the result is forwarded from memory to execute stage since it contains the loop which consumes some cycles.
@@ -53,7 +55,7 @@ uatg_csrbox_misarv.py -- Generates ASM to check misarv csr by using its reset va
 * With the addition of 'M' extension the processor is able to perform multipication and division operation along with the base instruction.
 * For bypassing from alu to mul instruction, if there is dependency then the value will be forwarded from any of the stage to execute stage of the next instruction.
 
-### uatg_bypass_mul_mul_logic.py
+### uatg_bypass_logic_MUL_MUL_variable.py
 * This program tests the bypass by computing x24 with the multiplication instruction which is obtained using ‘M’ extension.
 * x24 is used by next mul instruction after the loop operation
 * x24 is forwarded from the memory stage of the mul instruction to the execution stage of dependent sub instruction.
