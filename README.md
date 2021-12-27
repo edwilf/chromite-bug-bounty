@@ -62,9 +62,6 @@ More information regarding the bypass and scoreboarding is given [here](https://
 * x17 computed by the add instruction is used by the load instruction to obtain the address of the value to be loaded.
 * The value from the memory stage is passed to the execution stage of the load instruction.
 * The same value is used by the next instruction to compute the result.
-* It also uses the 
-
-### uatg_bypass_L_S_logic.py
-
-
+* It also uses the value loaded to  x20 for the next instruction, but the load instruction takes one more cycle to obtain the data.
+* the data obtained from the load instruction can be bypassed only after writeback stage, so the susequent instruction will be stalled.
 
