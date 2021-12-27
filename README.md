@@ -30,7 +30,27 @@ More information regarding the bypass and scoreboarding is given [here](https://
 * The result of x24 is bypassed from write-back stage to exuection stage of the third instruction.
 * This requires no stalling of any operation.
 
-### 
+### uatg_bypass_div_alu_logic.py
+* This program tests the bypass between the div instruction and alu operation and vice versa
+* The result from the div instruction is stored in x24 and the next instruction is dependent on x24.
+* So the result is forwarded from memory to execute stage since it contains the loop which consumes some cycles.
+* For bypassing from alu to div instruction the register x25 value is bypassed from writeback stage to execute stage of the alu operation.
+
+### uatg_bypass_mul_alu_logic.py
+* This program tests the bypass by computing x24 with the multiplication instruction which is obtained using ‘M’ extension.
+* x24 is used by next instruction which is a alu operation.
+* x24 is forwarded from the memory stage of the mul instruction to the execution stage of dependent sub instruction.
+* With the addition of 'M' extension the processor is able to perform multipication and division operation along with the base instruction.
+* For bypassing from alu to mul instruction, if there is dependency then the value will be forwarded from any of the stage to execute stage of the next instruction.
+
+### uatg_bypass_mul_mul_logic.py
+* 
+
+### uatg_bypass_div_mul_logic.py
+
+### uatg_bypass_LS_alu_logic.py
+
+### uatg_bypass_L_S_logic.py
 
 
 
