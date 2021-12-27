@@ -15,20 +15,16 @@ class uatg_bypass_alu_logic(IPlugin):
         super().__init__()
         self.isa = 'RV32I'
         self.isa_bit = 'rv32'
-        self.offset_inc = 4
         self.xlen = 32
-        self.num_rand_var = 100
 
     def execute(self, core_yaml, isa_yaml) -> bool:
         self.isa = isa_yaml['hart0']['ISA']
         if 'RV32' in self.isa:
             self.isa_bit = 'rv32'
             self.xlen = 32
-            self.offset_inc = 4
         else:
             self.isa_bit = 'rv64'
             self.xlen = 64
-            self.offset_inc = 8
         return True
 
     def generate_asm(self) -> List[Dict[str,Union[Union[str, List[Any]], Any]]]:
@@ -38,9 +34,11 @@ class uatg_bypass_alu_logic(IPlugin):
 	operation to another alu operation.
 	We are making use of 3 instruction add,sub and or which has x24 as the dependent 
 	register.
+	If x24 holds 21, bypass logic is verified
 	""" 
         
-        asm = "\n\tadd x24,x20,x21 \n\tsub x18,x24,x19 \n\tor x25,x31,x24 \n\n"
+	asm = "\n\tli x20,2 \n\tli x21,4 \n\tli x19,5"
+        asm += "\n\tadd x24,x20,x21 \n\tsub x18,x24,x19 \n\tor x25,x31,x24 \n\n"
         
         compile_macros = []
 
