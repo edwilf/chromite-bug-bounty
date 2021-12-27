@@ -5,7 +5,7 @@ from typing import Dict, List, Union, Any
 import random
 
 
-class uatg_bypass_logic(IPlugin):
+class uatg_bypass_pipeline_flush(IPlugin):
 
     """
     This class contains methods to generate and validate the tests for bypass from
