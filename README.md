@@ -71,10 +71,10 @@ More information regarding the bypass and scoreboarding is given [here](https://
 
 ### uatg_bypass_logic_LOAD_ALU_variable.py
 * This checks the bypassing from the load/store instruction to the alu operation and vice-versa.
-* x17 computed by the add instruction is used by the load instruction to obtain the address of the value to be loaded.
+* The value 1 is first stored into memory and then loaded into data dependent register x18.
 * The value from the memory stage is passed to the execution stage of the load instruction.
+* The ADD instruction uses the value stored in x18 and x19(value being 4) to compute a sum.If the sum is 5, bypass logic forwards the data to the next stage.
 * The same value is used by the next instruction to compute the result.
-* It also uses the value loaded to  x20 for the next instruction, but the load instruction takes one more cycle to obtain the data.
 * the data obtained from the load instruction can be bypassed only after writeback stage, so the susequent instruction will be stalled.
 
 ### uatg_bypass_pipeline_flush.py
