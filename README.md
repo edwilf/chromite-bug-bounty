@@ -36,6 +36,7 @@ More information regarding the bypass and scoreboarding is given [here](https://
 
 ### uatg_bypass_alu_logic.py
 * This script is used to test bypass from one ALU operation to another.
+* We are using 3 instruction,that has x24 as the dependent register.
 * The first instruction result is stored in x24 which is used by the susequent instruction.
 * The result of x24 is bypassed from memory stage to exuection stage of the second instruction.
 * The result of x24 is bypassed from write-back stage to exuection stage of the third instruction.
