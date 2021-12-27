@@ -58,7 +58,11 @@ More information regarding the bypass and scoreboarding is given [here](https://
 * Also the next instruction is dependent on x24 so its forwarded from writeback stage to execute stage.
 
 ### uatg_bypass_LS_alu_logic.py
-* This checks the bypassing 
+* This checks the bypassing from the load/store instruction to the alu operation and vice-versa.
+* x17 computed by the add instruction is used by the load instruction to obtain the address of the value to be loaded.
+* The value from the memory stage is passed to the execution stage of the load instruction.
+* The same value is used by the next instruction to compute the result.
+* It also uses the 
 
 ### uatg_bypass_L_S_logic.py
 
