@@ -14,5 +14,7 @@ More information regarding the bypass and scoreboarding is given [here](https://
 
 
 # Code Description
-##
+##uatg_reg_reset_logic.py
+
+
 
