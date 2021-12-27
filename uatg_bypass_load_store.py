@@ -4,7 +4,7 @@ from typing import Dict, List, Union, Any
 import random
 
 
-class uatg_bypass_logic(IPlugin):
+class uatg_bypass_load_store(IPlugin):
     """
     This class contains methods to generate and validate bypass logic between
     Load/Store instructions
