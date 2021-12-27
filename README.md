@@ -44,11 +44,21 @@ More information regarding the bypass and scoreboarding is given [here](https://
 * For bypassing from alu to mul instruction, if there is dependency then the value will be forwarded from any of the stage to execute stage of the next instruction.
 
 ### uatg_bypass_mul_mul_logic.py
-* 
+* This program tests the bypass by computing x24 with the multiplication instruction which is obtained using ‘M’ extension.
+* x24 is used by next mul instruction after the loop operation
+* x24 is forwarded from the memory stage of the mul instruction to the execution stage of dependent sub instruction.
+* With the addition of 'M' extension the processor is able to perform multipication and division operation along with the base instruction.
+* For bypassing from alu to mul instruction, if there is dependency then the value will be forwarded from any of the stage to execute stage of the next instruction
 
 ### uatg_bypass_div_mul_logic.py
+* This programs checks the bypassing between the div and mul instruction.
+* The 'M' extension is enabled.
+* x24 is computed in the execute stage of mul instruction.
+* The next instruction is dependent on x24, so the value of x24 is forwarded from memory stage to execution stage of the next instruction which is div.
+* Also the next instruction is dependent on x24 so its forwarded from writeback stage to execute stage.
 
 ### uatg_bypass_LS_alu_logic.py
+* This checks the bypassing 
 
 ### uatg_bypass_L_S_logic.py
 
