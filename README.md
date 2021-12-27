@@ -14,7 +14,14 @@ More information regarding the bypass and scoreboarding is given [here](https://
 
 
 # Code Description
-##uatg_reg_reset_logic.py
+## uatg_reg_reset_logic.py
+
+* This Script is used to check whether all the registers from the register file are reset to 0.
+* Initially  we compare the x0 and x1, if they are not equal we branch to LOC where we make use of the slt instruction to make x1 0.
+* Since x0 is hardwired to 0.
+* The for loop is used to check all the remaining registers are zero.
+* If the registers are not zero then value x1 hold will be non-zero.
+* In this way we can identify why the reset test failed.  
 
 
 
