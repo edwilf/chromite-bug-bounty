@@ -5,7 +5,7 @@ from typing import Dict, List, Union, Any
 import random
 
 
-class uatg_bypass_logic(IPlugin):
+class uatg_bypass_logic_mul_alu(IPlugin):
     """
     This class contains methods to generate and validate the bypass logic
     between MUL and ALU instructions.
