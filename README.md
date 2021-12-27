@@ -15,7 +15,6 @@ More information regarding the bypass and scoreboarding is given [here](https://
 
 # Code Description
 ### uatg_reg_reset_logic.py
-
 * This Script is used to check whether all the registers from the register file are reset to 0.
 * Initially  we compare the x0 and x1, if they are not equal we branch to LOC where we make use of the slt instruction to make x1 0.
 * Since x0 is hardwired to 0.
@@ -23,7 +22,15 @@ More information regarding the bypass and scoreboarding is given [here](https://
 * If the registers are not zero then value x1 hold will be non-zero.
 * In this way we can identify why the reset test failed.  
 
-### uatg
+### uatg_bypass_alu_logic.py
+* This script is used to test bypass from one ALU operation to another.
+* Here for example 3 instructions are considered.
+* These 3 instructions have x24 as a dependent register across the instructions.
+* The result of x24 is bypassed from memory stage to exuection stage of the second instruction.
+* The result of x24 is bypassed from write-back stage to exuection stage of the third instruction.
+* This requires no stalling of any operation.
+
+### 
 
 
 
