@@ -1,6 +1,5 @@
 from yapsy.IPlugin import IPlugin
-from uatg.instruction_constants import base_reg_file, arithmetic_instructions,\
-    bit_walker
+from uatg.instruction_constants import base_reg_file, arithmetic_instructions,bit_walker
 from typing import Dict, List, Union, Any
 import random
 
@@ -15,9 +14,7 @@ class uatg_bypass_logic(IPlugin):
         super().__init__()
         self.isa = 'RV32I'
         self.isa_bit = 'rv32'
-        self.offset_inc = 4
         self.xlen = 32
-        self.num_rand_var = 100
 
     def execute(self, core_yaml, isa_yaml) -> bool:
         self.isa = isa_yaml['hart0']['ISA']
