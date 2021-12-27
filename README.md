@@ -11,7 +11,14 @@ Scoreboarding: In its minimal configuration implements a 32-bit register for eac
 More information regarding the bypass and scoreboarding is given [here](https://chromite.readthedocs.io/en/using-csrbox/chromite.html#scoreboard).
 
 # File Structure
-
+.
+├── README.md -- Describes the idea behind each test and how the ASM is generated efficiently using Python 3.
+├── uatg_csrbox_infocsr1.py -- Generates ASM to check the csrrw function in registers mvendorid, mempid, marchid, mhartid.
+├── uatg_csrbox_infocsr2.py -- Generates ASM to check the csrrs function in registers mvendorid, mempid, marchid, mhartid.
+├── uatg_csrbox_infocsr3.py -- Generates ASM to check the csrrc function in registers mvendorid, mempid, marchid, mhartid.
+├── uatg_csrbox_minstret.py -- Generates ASM to check the minstret csr by performing sample operations.
+├── uatg_csrbox_misam.py -- Generates ASM to checking misam csr by disabling the m field and performing some multiplication operations.
+├── uatg_csrbox_misarv.py -- Generates ASM to check misarv csr by using its reset value as reference. 
 
 # Code Description
 ### uatg_reg_reset_logic.py
